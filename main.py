@@ -1,20 +1,12 @@
-def compute(arg1: int, arg2: int, operation: str):
-    result = 0
-    if operation == '+':
-        result = arg1 + arg2
-    elif operation == '-':
-        result = arg1 - arg2
-    elif operation == '*':
-        result = arg1 * arg2
-    elif operation == '/':
-        try:
-            result = arg1 + arg2
-        except ZeroDivisionError:
-            print('На ноль делить нельзя')    
-    return result
+from computing import *
 
-a = input('Введите матемотическое выражение:\n')
-b = a.split(' ')
-print(compute(int(b[0]), int(b[2]), b[1]))
+if __name__ == '__main__':
+    a = input('Введите матемотическое выражение:\n')
+    input_value = a.split(' ')
+    result = 0
     
-        
+    for i in range(0, len(input_value) -2, 2):
+        if i == 0:
+            result = int(input_value[0])
+        result = compute(result, int(input_value[i + 2]), input_value[i+1])
+    print(result)
