@@ -8,7 +8,10 @@ def compute(arg1: int, arg2: int, operation: str):
         result = arg1 * arg2
     elif operation == '/':
         try:
-            result = arg1 + arg2
+            result = arg1 / arg2
         except ZeroDivisionError:
             print('На ноль делить нельзя')    
     return result
+
+def accepted_operators() :
+    return ['+', '-', '/', '*']
